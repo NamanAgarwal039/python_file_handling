@@ -1,4 +1,5 @@
 from pathlib import Path
+import os
 
 def readdirectory():
     path = Path('')
@@ -72,6 +73,22 @@ def updatefile():
     except Exception as err:
         print(f"An error occurs as {err}")       
 
+def deletefile():
+    try:
+        readdirectory()
+        name= input("which file you want to delete :- ")
+        p = Path(name)
+
+        if p.exists() and p.is_file():
+            os.remove(p)
+
+            print("File removed sucessfully")
+
+        else:
+            print("No such file exists")
+    except Exception as err:
+        print(f"Error occurs as {err}")
+
 
 
 
@@ -93,3 +110,6 @@ if check ==2:
 
 if check == 3:
     updatefile()
+
+if check ==4:
+    deletefile()
