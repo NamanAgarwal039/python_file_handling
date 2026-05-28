@@ -43,26 +43,34 @@ def readfile():
 
 
 def updatefile():
-    readdirectory()
-    name = input("tell which file do you want to update ")
-    p = Path(name)
-    if p.exists() and p.is_file():
+    try:
+        readdirectory()
+        name = input("tell which file do you want to update ")
+        p = Path(name)
+        if p.exists() and p.is_file():
 
-        print("press 1 for change the name of the file :- ")
-        print("press 2 for override the data of the file :- ")
-        print("press 1 for append some content in your file :- ")
+            print("press 1 for change the name of the file :- ")
+            print("press 2 for override the data of the file :- ")
+            print("press 1 for append some content in your file :- ")
 
 
-        response = int(input("Enter your response :- "))
+            response = int(input("Enter your response :- "))
 
-        if response ==1:
-            name2= input("Tell your new file name :- ")
-            p2 = Path(name2)
-            p.rename(p2) 
+            if response ==1:
+                name2= input("Tell your new file name :- ")
+                p2 = Path(name2)
+                p.rename(p2) 
 
-        if response ==2:
-            with open(p,'w'):
-                
+            if response ==2:
+                with open(p,'w') as fs:
+                    data = input("Tell what do you want to write :-")
+                    fs.write(data)
+            if response ==3:
+                with open(p,'a') as fs:
+                    data=input("enter the data which you want to append :-")
+                    fs.write(" "+data)
+    except Exception as err:
+        print(f"An error occurs as {err}")       
 
 
 
