@@ -55,10 +55,11 @@ def updatefile():
 
             print("press 1 for change the name of the file :- ")
             print("press 2 for override the data of the file :- ")
-            print("press 1 for append some content in your file :- ")
+            print("press 3 for append some content in your file :- ")
 
 
             response = int(input("Enter your response :- "))
+
 
             if response ==1:
                 name2= input("Tell your new file name :- ")
