@@ -3,7 +3,10 @@ import os
 
 def readdirectory():
     path = Path('')
-    items = list(path.rglob('*'))
+    
+    items =[item for item in path.iterdir()
+            if item.name != '.git']
+
     for i , items in  enumerate(items):
         print(f"{i+1} : {items}")
         
